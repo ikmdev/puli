@@ -2,9 +2,8 @@
 
 A library for manipulating with proofs based on inference rules
 
-## Owner
-
-Data Team
+### Team Ownership - Product Owner
+Data Team - Eric Mays (External) <emays@mays-systems.com>
 
 ## How to Contribute
 
