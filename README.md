@@ -1,6 +1,6 @@
-# puli
+# Proof Utility Library and OWL API Proof Extension
 
-A library for manipulating with proofs based on inference rules
+This is a fork of [Puli](https://github.com/liveontologies/puli) and the (Puli OWL API Extension)[https://github.com/liveontologies/owlapi-proof]
 
 ### Team Ownership - Product Owner
 Data Team - Eric Mays (External) <emays@mays-systems.com>
