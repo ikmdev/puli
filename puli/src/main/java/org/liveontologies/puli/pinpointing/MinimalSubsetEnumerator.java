@@ -64,7 +64,7 @@ public interface MinimalSubsetEnumerator<E> {
 	 * {@link Set#containsAll(java.util.Collection) set1.containsAll(set2) ==
 	 * false}, then {@link Comparator#compare(Object, Object)
 	 * priorityComparator.compare(priorityComparator.getPriority(set1),
-	 * priorityComparator.getPriority(set2)) < 0}.</blockquote>
+	 * priorityComparator.getPriority(set2)) &lt; 0}.</blockquote>
 	 * 
 	 * @param listener
 	 *            The listener that is notified about new justifications.
