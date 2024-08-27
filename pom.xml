@@ -52,8 +52,8 @@
 		<junit4.version>4.13.2</junit4.version>
 		<junit-jupiter-api.version>5.6.3</junit-jupiter-api.version>
 		<nexus-staging-maven-plugin.version>1.6.13</nexus-staging-maven-plugin.version>
-		<license.maven.plugin.version>2.4.0</license.maven.plugin.version>
-		<versions.maven.plugin.version>2.15.0</versions.maven.plugin.version>
+		<license-maven-plugin.version>2.4.0</license-maven-plugin.version>
+		<versions-maven-plugin.version>2.15.0</versions-maven-plugin.version>
 
 		<!-- maven plugin versions -->
 		<maven-assembly-plugin.version>3.6.0</maven-assembly-plugin.version>
@@ -215,12 +215,12 @@
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>license-maven-plugin</artifactId>
-					<version>${license.maven.plugin.version}</version>
+					<version>${license-maven-plugin.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>versions-maven-plugin</artifactId>
-					<version>${versions.maven.plugin.version}</version>
+					<version>${versions-maven-plugin.version}</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
