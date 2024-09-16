@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>dev.ikm.puli</groupId>
@@ -45,24 +47,26 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>21</java.version>
+		<!-- logging dependencies-->
 		<slf4j.version>2.0.13</slf4j.version>
+		<!-- dev.ikm JPMS dependencies-->
 		<guava.version>33.1.0-jre-r3</guava.version>
 		<jsr305.version>3.0.2-r6</jsr305.version>
+		<!-- dev.ikm OWL API dependencies-->
 		<owlapi4.version>4.7.1</owlapi4.version>
+		<!-- test dependencies-->
 		<junit4.version>4.13.2</junit4.version>
 		<junit-jupiter-api.version>5.6.3</junit-jupiter-api.version>
-		<nexus-staging-maven-plugin.version>1.6.13</nexus-staging-maven-plugin.version>
-		<license-maven-plugin.version>2.4.0</license-maven-plugin.version>
-		<versions-maven-plugin.version>2.15.0</versions-maven-plugin.version>
-
-		<!-- maven plugin versions -->
-		<maven-assembly-plugin.version>3.6.0</maven-assembly-plugin.version>
+		<!-- maven plugins -->
+		<maven-assembly-plugin.version>3.7.1</maven-assembly-plugin.version>
 		<maven-changes-plugin.version>2.12.1</maven-changes-plugin.version>
 		<maven-clean-plugin.version>3.3.2</maven-clean-plugin.version>
 		<maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
-		<maven-deploy-plugin.version>3.1.0</maven-deploy-plugin.version>
 		<maven-dependency-plugin.version>3.6.1</maven-dependency-plugin.version>
+		<maven-deploy-plugin.version>3.1.0</maven-deploy-plugin.version>
 		<maven-enforcer-plugin.version>3.3.0</maven-enforcer-plugin.version>
+		<maven-failsafe-plugin.version>3.2.1 </maven-failsafe-plugin.version>
+		<maven-gpg-plugin.version>3.1.0</maven-gpg-plugin.version>
 		<maven-install-plugin.version>3.1.1</maven-install-plugin.version>
 		<maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
 		<maven-javadoc-plugin.version>3.5.0</maven-javadoc-plugin.version>
@@ -71,11 +75,15 @@
 		<maven-site-plugin.version>3.12.1</maven-site-plugin.version>
 		<maven-source-plugin.version>3.3.0</maven-source-plugin.version>
 		<maven-surefire-plugin.version>3.2.2</maven-surefire-plugin.version>
-		<maven-gpg-plugin.version>3.1.0</maven-gpg-plugin.version>
+		<!-- other plugins -->
+		<nexus-staging-maven-plugin.version>1.6.13</nexus-staging-maven-plugin.version>
+		<license-maven-plugin.version>2.4.0</license-maven-plugin.version>
+		<versions-maven-plugin.version>2.15.0</versions-maven-plugin.version>
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
+			<!-- logging dependencies-->
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
@@ -119,7 +127,7 @@
 				<artifactId>owlapi-parsers</artifactId>
 				<version>${owlapi4.version}</version>
 			</dependency>
-			<!-- Test dependencies-->
+			<!-- test dependencies-->
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
@@ -132,6 +140,7 @@
 	<build>
 		<pluginManagement>
 			<plugins>
+				<!-- maven plugins -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-assembly-plugin</artifactId>
@@ -154,6 +163,11 @@
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>${maven-dependency-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-deploy-plugin</artifactId>
 					<version>${maven-deploy-plugin.version}</version>
 				</plugin>
@@ -164,13 +178,13 @@
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-dependency-plugin</artifactId>
-					<version>${maven-dependency-plugin.version}</version>
+					<artifactId>maven-enforcer-plugin</artifactId>
+					<version>${maven-enforcer-plugin.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-enforcer-plugin</artifactId>
-					<version>${maven-enforcer-plugin.version}</version>
+					<artifactId>maven-failsafe-plugin</artifactId>
+					<version>${maven-failsafe-plugin.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -212,6 +226,7 @@
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>${maven-surefire-plugin.version}</version>
 				</plugin>
+				<!-- other plugins -->
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>license-maven-plugin</artifactId>
@@ -244,6 +259,30 @@
 								</requireJavaVersion>
 							</rules>
 							<fail>true</fail>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>versions-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>analyze</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>display-dependency-updates</goal>
+							<goal>display-plugin-updates</goal>
+						</goals>
+						<configuration>
+							<ruleSet>
+								<ignoreVersions>
+									<ignoreVersion>
+										<type>regex</type>
+										<version>.+(alpha|beta).*</version>
+									</ignoreVersion>
+								</ignoreVersions>
+							</ruleSet>
 						</configuration>
 					</execution>
 				</executions>
@@ -405,12 +444,14 @@
 				<snapshotRepository>
 					<id>ossrh</id>
 					<layout>maven</layout>
-					<url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+					<url>
+						https://s01.oss.sonatype.org/content/repositories/snapshots</url>
 				</snapshotRepository>
 				<repository>
 					<id>maven-releases</id>
 					<layout>maven</layout>
-					<url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+					<url>
+						https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
 				</repository>
 			</distributionManagement>
 			<build>
@@ -446,12 +487,14 @@
 				<snapshotRepository>
 					<id>ossrh</id>
 					<layout>maven</layout>
-					<url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+					<url>
+						https://s01.oss.sonatype.org/content/repositories/snapshots</url>
 				</snapshotRepository>
 				<repository>
 					<id>maven-releases</id>
 					<layout>maven</layout>
-					<url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+					<url>
+						https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
 				</repository>
 			</distributionManagement>
 			<build>
@@ -502,12 +545,14 @@
 				<snapshotRepository>
 					<id>ossrh</id>
 					<layout>maven</layout>
-					<url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+					<url>
+						https://s01.oss.sonatype.org/content/repositories/snapshots</url>
 				</snapshotRepository>
 				<repository>
 					<id>maven-releases</id>
 					<layout>maven</layout>
-					<url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+					<url>
+						https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
 				</repository>
 			</distributionManagement>
 			<build>
