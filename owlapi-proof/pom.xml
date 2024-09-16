@@ -24,18 +24,17 @@
 	</licenses>
 
 	<dependencies>
-
-		<!-- dev.ikm OWL API dependencies-->
-		<dependency>
-			<groupId>dev.ikm.owlapi</groupId>
-			<artifactId>owlapi-api</artifactId>
-		</dependency>
 		<!-- dev.ikm JPMS dependencies-->
 		<dependency>
 			<groupId>dev.ikm.jpms</groupId>
 			<artifactId>jsr305</artifactId>
 		</dependency>
-		<!-- Project dependencies-->
+		<!-- dev.ikm OWL API dependencies-->
+		<dependency>
+			<groupId>dev.ikm.owlapi</groupId>
+			<artifactId>owlapi-api</artifactId>
+		</dependency>
+		<!-- project dependencies-->
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>puli</artifactId>
