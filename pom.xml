@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>dev.ikm.puli</groupId>
@@ -17,20 +15,6 @@
 		<name>Integrated Knowledge Management</name>
 		<url>https://www.ikm.dev</url>
 	</organization>
-	<scm>
-		<url>http://www.github.com/ikmdev/puli</url>
-	</scm>
-	<developers>
-		<!-- OSSRH Related Developer (Start) -->
-		<developer>
-			<id>ikmdev</id>
-			<name>IKM Development Team</name>
-			<email>support@ikm.dev</email>
-		</developer>
-		<!-- OSSRH Related Developer (End) -->
-
-	</developers>
-
 	<licenses>
 		<license>
 			<name>The Apache Software License, Version 2.0</name>
@@ -39,10 +23,24 @@
 		</license>
 	</licenses>
 
+	<developers>
+		<!-- OSSRH Related Developer (Start) -->
+		<developer>
+			<id>ikmdev</id>
+			<name>IKM Development Team</name>
+			<email>support@ikm.dev</email>
+		</developer>
+		<!-- OSSRH Related Developer (End) -->
+	</developers>
+
 	<modules>
 		<module>puli</module>
 		<module>owlapi-proof</module>
 	</modules>
+
+	<scm>
+		<url>http://www.github.com/ikmdev/puli</url>
+	</scm>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -78,6 +76,7 @@
 		<!-- other plugins -->
 		<nexus-staging-maven-plugin.version>1.6.13</nexus-staging-maven-plugin.version>
 		<license-maven-plugin.version>2.4.0</license-maven-plugin.version>
+		<tidy-maven-plugin.version>1.2.0</tidy-maven-plugin.version>
 		<versions-maven-plugin.version>2.15.0</versions-maven-plugin.version>
 	</properties>
 
@@ -234,6 +233,11 @@
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>tidy-maven-plugin</artifactId>
+					<version>${tidy-maven-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>versions-maven-plugin</artifactId>
 					<version>${versions-maven-plugin.version}</version>
 				</plugin>
@@ -313,6 +317,19 @@
 								<root>src/test/java</root>
 							</roots>
 						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>tidy-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>validate</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>check</goal>
+						</goals>
 					</execution>
 				</executions>
 			</plugin>
