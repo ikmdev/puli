@@ -24,12 +24,12 @@
 	</licenses>
 
 	<dependencies>
-		<!-- dev.ikm JPMS dependencies-->
+		<!-- dev.ikm.jpms dependencies-->
 		<dependency>
 			<groupId>dev.ikm.jpms</groupId>
 			<artifactId>jsr305</artifactId>
 		</dependency>
-		<!-- dev.ikm OWL API dependencies-->
+		<!-- dev.ikm.owlapi dependencies-->
 		<dependency>
 			<groupId>dev.ikm.owlapi</groupId>
 			<artifactId>owlapi-api</artifactId>
