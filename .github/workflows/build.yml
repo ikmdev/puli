@@ -5,6 +5,7 @@ run-name: 'Build Workflow -- ${{ github.head_ref || github.ref_name }}'
 on:
     push:
     pull_request:
+    workflow_dispatch:
 
 env:
   BRANCH_NAME: ${{github.ref_name}}
@@ -29,4 +30,4 @@ jobs:
           sonarcloud_projectKey: ${{ github.repository_owner }}_${{ github.event.repository.name }}
           sonarcloud_coverage_jacoco_xmlReportPaths: ${{ 'target/site/jacoco/jacoco.xml' }}
           sonarcloud_java_binaries: ${{ 'target/classes' }}
-          sonarcloud_tests: ${{ '' }
+          sonarcloud_tests: ${{ '' }}
