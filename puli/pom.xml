@@ -23,12 +23,12 @@
 	</licenses>
 
 	<dependencies>
-		<!-- test dependencies-->
+		<!-- test dependencies -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 		</dependency>
-		<!-- dev.ikm.jpms dependencies-->
+		<!-- dev.ikm.jpms dependencies -->
 		<dependency>
 			<groupId>dev.ikm.jpms</groupId>
 			<artifactId>guava</artifactId>

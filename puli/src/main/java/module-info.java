@@ -19,8 +19,8 @@
  */
 open module org.liveontologies.puli {
 
-	requires com.google.common;
-
+	requires dev.ikm.jpms.google.common;
+	
 	requires org.slf4j;
 
 	exports org.liveontologies.puli;
