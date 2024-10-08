@@ -19,8 +19,8 @@
  */
 open module org.liveontologies.owlapi.proof {
 
-	requires javax.annotation;
-
+	requires dev.ikm.jpms.javax.annotation;
+	
 	requires org.slf4j;
 
 	requires org.liveontologies.puli;
