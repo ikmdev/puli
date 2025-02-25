@@ -271,8 +271,8 @@
 						<featureNamePattern>^(?!(((feature|hotfix|bugfix))\/(IKM|AR|IAT|IC|IKMC|IKDT|IKMD|IIA|IKMW|IKMM|TE)-\d+(-[0-9A-Za-z\-]*)*)|main|prod|master|dev).*$</featureNamePattern>
 						<separateFinishBranches>true</separateFinishBranches>
 						<gitFlowConfig>
-							<developmentBranch>main</developmentBranch>
-							<productionBranch>main</productionBranch>
+							<developmentBranch>master</developmentBranch>
+							<productionBranch>master</productionBranch>
 							<featureBranchPrefix>feature/</featureBranchPrefix>
 							<finishBranchPrefix>finished/</finishBranchPrefix>
 							<hotfixBranchPrefix>hotfix/</hotfixBranchPrefix>
@@ -303,7 +303,7 @@
 						<configuration>
 							<rules>
 								<requireMavenVersion>
-									<version>3.8</version>
+									<version>3.9</version>
 								</requireMavenVersion>
 								<requireJavaVersion>
 									<version>${java.version}</version>
